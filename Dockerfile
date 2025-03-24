@@ -8,7 +8,7 @@ RUN npm install
 FROM node:18-alpine AS prisma
 WORKDIR /app
 COPY --from=deps /app/package*.json ./
-COPY prisma ./prisma/
+COPY prisma ./prisma
 #Copy the env file if needed for prisma generate
 COPY .env ./.env 
 RUN npm install prisma --save-dev
