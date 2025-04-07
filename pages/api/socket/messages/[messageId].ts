@@ -132,9 +132,9 @@ export default async function handler(
         },
       });
     }
-    const updateKey = `chat:${channelId}:message:update`;
+    const updateKey = `chat:${channelId}:messages:update`;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (res.socket as any)?.io?.emit(updateKey, message);
+    (res.socket as any)?.server?.io?.emit(updateKey, message);
     return res.status(200).json(message);
   } catch (error) {
     console.log("[MESSAGES_ID]", error);
