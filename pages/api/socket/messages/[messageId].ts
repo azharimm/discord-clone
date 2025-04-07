@@ -28,10 +28,6 @@ export default async function handler(
       return res.status(400).json({ error: "Channel ID is required" });
     }
 
-    if (!content) {
-      return res.status(400).json({ error: "Content is required" });
-    }
-
     const server = await db.server.findFirst({
       where: {
         id: serverId as string,
